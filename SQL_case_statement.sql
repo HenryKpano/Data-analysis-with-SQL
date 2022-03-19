@@ -11,3 +11,16 @@ SELECT
 		ELSE NULL
 	END AS age_analyze
 FROM labstart
+
+
+---- Counts based on condition
+SELECT 
+--- this gets the year
+	labstart.year,
+--- this case statement analyse is condition is met
+	CASE WHEN labstart.year > 2011
+		THEN count(labstart.customer_age)
+		ELSE NULL
+	END AS number_of_customers
+FROM labstart
+Group by labstart.year
